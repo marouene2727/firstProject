@@ -21,7 +21,7 @@ public class Moniteur {
     String prenomM;
     LocalDate dateRecru;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "moniteur")// la classe Moniteur est la classe child(mapped by), elle est géréé par la classe Inscription
+    @OneToMany// la classe Moniteur est la classe child(mapped by), elle est géréé par la classe Inscription
     private Set<Cours> cours;
 
 }

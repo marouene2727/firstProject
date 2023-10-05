@@ -1,6 +1,5 @@
 package com.esprit.myfirstproject.entities;
 
-import com.esprit.myfirstproject.entities.enums.Couleur;
 import com.esprit.myfirstproject.entities.enums.Support;
 import com.esprit.myfirstproject.entities.enums.TypeCours;
 import jakarta.persistence.*;
@@ -27,13 +26,12 @@ public class Cours {
     Float prix;
     int creneau;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cours")// la classe Cours est la classe child(mapped by), elle est géréé par la classe Inscription
+    @OneToMany(mappedBy = "cours")
+// la classe Cours est la classe child(mapped by), elle est géréé par la classe Inscription
     private Set<Inscription> inscriptions;
 
     @ManyToOne
-    Moniteur moniteur ;
-
-
+    Moniteur moniteur;
 
 
 }

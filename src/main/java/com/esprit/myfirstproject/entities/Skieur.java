@@ -16,17 +16,18 @@ import java.util.Set;
 public class Skieur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Setter(AccessLevel.NONE)
     int numSkieur;
 
     @ManyToMany(mappedBy = "skieurs") //la classe Piste gère la classe Skieur c pk il y a un mapped by dans la relation ManyToMany
     Set<Piste> pistes;
 
 
-    @OneToOne//relation 1..1 (avec composition) entre SKIEUR et ABONNEMENT
-    private Abonnement abonnement;
+    @OneToOne(cascade = CascadeType.ALL)//relation 1..1 (avec composition <=> CascadeType.ALL) entre SKIEUR et ABONNEMENT
+    Abonnement abonnement;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "skieur")// la classe skieur est la classe child(mapped by), elle est géréé par la classe Inscription
-    private Set<Inscription> inscriptions;
+    @OneToMany(mappedBy = "skieur")// la classe skieur est la classe child(mapped by), elle est géréé par la classe InscriptionRepository
+    Set<Inscription> inscriptions;
 
 
     String nomS;
