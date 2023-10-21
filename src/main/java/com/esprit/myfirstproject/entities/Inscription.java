@@ -1,5 +1,6 @@
 package com.esprit.myfirstproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -16,6 +17,7 @@ public class Inscription {
     Long numInscription;
     int numSemaine;
     @ManyToOne
+    @JsonIgnore // permet d'ignorer l'attribut nulSkeiur lors du binfi=ding entre le skieur et l'inscription
     Skieur skieur ;
     @ManyToOne
     Cours cours ;

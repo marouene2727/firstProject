@@ -1,5 +1,9 @@
 package com.esprit.myfirstproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -13,6 +17,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE) //rend tous mles attributs private
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "numSkieur"
+//)// permet d'empêcher que le fichier fasse une boucle infini
 public class Skieur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +35,7 @@ public class Skieur {
     Abonnement abonnement;
 
     @OneToMany(mappedBy = "skieur")// la classe skieur est la classe child(mapped by), elle est géréé par la classe InscriptionRepository
+    //l'attribut skieur sera donc situé dans la classe Inscription donc on utilise l'InscriptionRepository pour sauvegarder un Skieur
     Set<Inscription> inscriptions;
 
 
