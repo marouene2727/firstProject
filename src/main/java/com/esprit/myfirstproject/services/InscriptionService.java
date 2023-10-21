@@ -14,4 +14,6 @@ public interface InscriptionService {
     Inscription getId(Long id);
 
     boolean deleteById(Long id);
+
+    Inscription addInscriptionAndAssignToSkieur(Long idSkieur, Inscription inscription);
 }

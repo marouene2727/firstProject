@@ -11,7 +11,7 @@ public interface SkieurService {
 
     List<Skieur> getAll();
 
-    Skieur getId(Long id);
+    Skieur getSkieurbyId(Long id);
 
     boolean deleteById(Long id);
 }

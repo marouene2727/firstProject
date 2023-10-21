@@ -30,7 +30,7 @@ public class SkieurServiceImpl implements SkieurService {
     }
 
     @Override
-    public Skieur getId(Long id) {
+    public Skieur getSkieurbyId(Long id) {
         return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Skieur " + id + " INEXISTANT !!!"));
     }
 
