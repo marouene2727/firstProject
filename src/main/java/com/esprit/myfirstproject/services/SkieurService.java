@@ -1,10 +1,14 @@
 package com.esprit.myfirstproject.services;
 
 import com.esprit.myfirstproject.entities.Skieur;
+import com.esprit.myfirstproject.entities.enums.TypeAbonnement;
 
 import java.util.List;
 
-public interface SkieurService {
+public interface SkieurService {// on ne touche plus cette interface (contient seulement les méthodes minimales
+
+    // et les méthodes avancées)
+//    Ce principe est nommé : Ouvert à l'extension, fermé à la modification.
     Skieur addSkieur(Skieur skieur);
 
     Skieur updateSkieur(Skieur skieur);
@@ -14,4 +18,12 @@ public interface SkieurService {
     Skieur getSkieurbyId(Long id);
 
     boolean deleteById(Long id);
+
+    Skieur assignSkieurToPiste(Long numSkieur, Long numPiste);
+
+    Skieur addSkieurAndAssignToCourse(Skieur skieur, Long numCourse);
+
+    List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement);
+
+    List<Skieur> getSkieurbyMoniteurNameJPQL(String MoniteurName);
 }

@@ -30,8 +30,6 @@ public class Cours {
 // la classe Cours est la classe child(mapped by), elle est géréé par la classe Inscription
     private Set<Inscription> inscriptions;
 
-    @ManyToOne
-    Moniteur moniteur;
 
 
 }

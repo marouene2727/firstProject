@@ -1,7 +1,7 @@
 package com.esprit.myfirstproject.controllers;
 
 import com.esprit.myfirstproject.entities.Inscription;
-import com.esprit.myfirstproject.services.servicesimpl.InscriptionServiceImpl;
+import com.esprit.myfirstproject.services.InscriptionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,31 +12,49 @@ import java.util.List;
 @RequiredArgsConstructor // permet d'injester par constructeur
 public class InscriptionController {
 
-    private final InscriptionServiceImpl InscriptionService;
+//    private final inscriptionServiceImpl inscriptionService;
+
+
+    private final InscriptionService inscriptionService; // pas d'autowired car injection par constructeur
 
     @GetMapping
     public List<Inscription> getAll() {
-        return InscriptionService.getAll(); // tjr appel d'une méthode provenant du service associé.
+        return inscriptionService.getAll(); // tjr appel d'une méthode provenant du service associé.
     }
 
     @GetMapping("{id}")
     public Inscription getInscriptionbyId(@PathVariable Long id) { //@pathvariable prend la mémé chaîne que le nom de l'attribut voir @GetMapping
-        return InscriptionService.getId(id);
+        return inscriptionService.getId(id);
     }
 
     @PostMapping
     public Inscription addInscription(@RequestBody Inscription Inscription) {// @RequestBody pr les objets et @PathVariable pour les attributs
-        return InscriptionService.addInscription(Inscription);
+        return inscriptionService.addInscription(Inscription);
     }
 
     @PutMapping
     public Inscription updateInscription(@RequestBody Inscription Inscription) {
-        return InscriptionService.updateInscription(Inscription);
+        return inscriptionService.updateInscription(Inscription);
     }
 
     //méthodes avancées
+
     @PostMapping("{idSkieur}") // on doit précisier l'id du skieur à ajouter dans l'inscription
-    public Inscription addInscriptionAndAssignToSkieur(@PathVariable Long idSkieur,@RequestBody Inscription inscription){
-        return InscriptionService.addInscriptionAndAssignToSkieur(idSkieur,inscription);
+    //post car on a créé un objet
+    public Inscription addInscriptionAndAssignToSkieur(@PathVariable Long idSkieur, @RequestBody Inscription inscription) {
+        return inscriptionService.addInscriptionAndAssignToSkieur(idSkieur, inscription);
+    }
+
+    @PutMapping("/addRegisterToCours") // Put car on n'a pas créé d'objets juste assigner
+
+    public Inscription assignInscriptionToCourse(@RequestParam Long numInscription, @RequestParam Long numCours) {
+
+        return inscriptionService.assignInscriptionToCourse(numInscription, numCours);
+    }
+
+
+    @PostMapping("{numSkieur}/{numCours}")
+    Inscription addInscriptionAndAssignToSkierAndCourse(Inscription inscription,@PathVariable Long numSkieur,@PathVariable Long numCours){
+        return inscriptionService.addInscriptionAndAssignToSkierAndCourse(inscription,numSkieur,numCours);
     }
 }

@@ -1,8 +1,10 @@
 package com.esprit.myfirstproject.controllers;
 
 import com.esprit.myfirstproject.entities.Skieur;
+import com.esprit.myfirstproject.entities.enums.TypeAbonnement;
 import com.esprit.myfirstproject.services.servicesimpl.SkieurServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +38,33 @@ public class SkieurController {
         return skieurService.updateSkieur(skieur);
     }
 
+    @PutMapping ("/AddSkieurToPiste")
 
+    public  Skieur assignSkieurToPiste(@RequestParam Long numSkieur,@RequestParam Long numPiste) {
+
+        return skieurService.assignSkieurToPiste(numSkieur, numPiste);
+    }
+
+
+    @PostMapping("/addSkierAndAssignToCourse/{numCourse}")
+
+    public Skieur addSkierAndAssignToCourse(@RequestBody Skieur skieur,@PathVariable Long numCourse){
+        return  skieurService.addSkieurAndAssignToCourse(skieur,numCourse);
+    }
+
+
+//    1ère méthode avancée faite
+
+    @GetMapping("/typeAbonnement/{typeAbonnement}")
+    List<Skieur> retrieveSkiersBySubscriptionType(@PathVariable TypeAbonnement typeAbonnement){
+        return skieurService.retrieveSkiersBySubscriptionType(typeAbonnement);
+
+    }
+
+
+    @GetMapping("/getSkieurbyMoniteurNameJPQL")
+    public List<Skieur> getSkieurbyMoniteurNameJPQL(@RequestParam("MoniteurName") String MoniteurName){
+        return skieurService.getSkieurbyMoniteurNameJPQL(MoniteurName);
+    }
 
 }
