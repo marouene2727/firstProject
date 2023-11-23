@@ -6,6 +6,7 @@ import com.esprit.myfirstproject.repositories.CoursRepository;
 import com.esprit.myfirstproject.repositories.MoniteurRepository;
 import com.esprit.myfirstproject.services.MoniteurService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

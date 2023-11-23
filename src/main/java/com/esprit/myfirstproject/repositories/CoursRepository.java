@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public interface CoursRepository extends JpaRepository<Cours, Long> {
 
+//    JPQL = Jakarta Persistence API (QL = Querry Language)
+
     @Query(value = "SELECT *" +
             " FROM cours c" +
             " JOIN moniteur_cours_set mc ON c.num_cours=mc.cours_set_num_cours " +
@@ -18,6 +20,9 @@ public interface CoursRepository extends JpaRepository<Cours, Long> {
             "WHERE m.nomm = :nameMon ", nativeQuery = true)
         //native va conserver la forme intiale de la requête (pas JPQL => )
     List<Cours> getCoursByMoniteurSQL(@Param("nameMon") String name);
+
+    //JPQL s'adapte à n'importe quelle base de donnée contrairment à SQL, qui ne s'adapte qu'au language SQL.
+    //
 
 
     @Query( "SELECT c" +

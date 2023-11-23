@@ -3,16 +3,18 @@ package com.esprit.myfirstproject.services.servicesimpl;
 import com.esprit.myfirstproject.entities.Piste;
 import com.esprit.myfirstproject.repositories.PisteRepository;
 import com.esprit.myfirstproject.services.PisteService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PisteServiceImpl implements PisteService {
 
-    @Autowired
-    PisteRepository repository;
+
+    private final PisteRepository repository;
 
     @Override
     public Piste addPiste(Piste p) {

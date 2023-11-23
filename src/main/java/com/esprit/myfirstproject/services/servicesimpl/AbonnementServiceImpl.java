@@ -5,10 +5,10 @@ import com.esprit.myfirstproject.entities.enums.TypeAbonnement;
 import com.esprit.myfirstproject.repositories.AbonnementRepository;
 import com.esprit.myfirstproject.services.AbonnementService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -79,7 +79,7 @@ public class AbonnementServiceImpl implements AbonnementService {
     @Override
     public List<Abonnement> retrieveSubscriptionsByDates(LocalDate startDate, LocalDate endDate) {
 
-        List<Abonnement> abonnements = abonnementRepository.findByDateDebutAfterAndDateFinBefore(startDate,endDate);
+        List<Abonnement> abonnements = abonnementRepository.findByDateDebutAfterAndDateFinBefore(startDate, endDate);
 //
 //        abonnements.removeIf(abonnement -> abonnement.getDateDebut().isBefore(startDate) || abonnement.getDateFin().isAfter(endDate));
 //

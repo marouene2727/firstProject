@@ -39,8 +39,7 @@ public interface SkieurRepository extends JpaRepository<Skieur, Long> {
 
     @Query("SELECT i.skieur " +
             "FROM Inscription i " +
-            "JOIN Moniteur m ON i.cours member of m.cours " +
-            "WHERE m.nomM = :MoniteurName order by SIZE(i.skieur.pistes) ")
+            "order by SIZE(i.skieur.pistes) ")
         //pas native donc JPQL
     List<Skieur> getSkieurbyMoniteurNameJPQL(@Param("MoniteurName") String MoniteurName);
 

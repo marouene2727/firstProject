@@ -78,7 +78,6 @@ public class CoursServiceImpl implements CoursService {
     }
 
 
-
     private int calculateWeekNumber(int creneau) {
         // Calculer le numéro de semaine en divisant le créneau par 7 (le nombre de jours dans une semaine).
         return creneau / 7;

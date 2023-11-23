@@ -10,6 +10,7 @@ import com.esprit.myfirstproject.repositories.SkieurRepository;
 import com.esprit.myfirstproject.services.InscriptionService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
