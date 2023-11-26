@@ -15,13 +15,13 @@ import java.util.List;
 @Repository
 public interface SkieurRepository extends JpaRepository<Skieur, Long> {
 
-    List<Skieur> findByAbonnement_TypeAbonnement(TypeAbonnement typeAbonnement); // récupérer des Skieurs selon un Type d'abonnement
+    List<Skieur> findByAbonnement_TypeAbon(TypeAbonnement typeAbonnement); // récupérer des Skieurs selon un Type d'abonnement
 //    1 condition <=> 1 paramêtre
 //  Skieur contient comme attribut l'objet Abonnement, qui contient comme attribut l'objet TypeAbonnement.
 
 //   on peut aussi écrire : List<Skieur> findByAbonnementTypeAbonnement(TypeAbonnement typeAbonnement);
 
-    List<Skieur> findByAbonnement_TypeAbonnementAndPistes_CouleurAndInscriptions_Cours_TypeCoursAndInscriptions_Cours_Support(TypeAbonnement abonnement_typeAbonnement, Couleur pistes_couleur, TypeCours inscriptions_cours_typeCours, Support inscriptions_cours_support);
+    List<Skieur> findByAbonnement_TypeAbonAndPistes_CouleurAndInscriptions_Cours_TypeCoursAndInscriptions_Cours_Support(TypeAbonnement abonnement_typeAbonnement, Couleur pistes_couleur, TypeCours inscriptions_cours_typeCours, Support inscriptions_cours_support);
 
     //4 conditions donc 4 paramêtres
 

@@ -1,6 +1,5 @@
 package com.esprit.myfirstproject.entities;
 
-import com.esprit.myfirstproject.entities.enums.Couleur;
 import com.esprit.myfirstproject.entities.enums.TypeAbonnement;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,7 +21,7 @@ public class Abonnement {
     LocalDate dateFin;
     Float prixAbon;
     @Enumerated(EnumType.STRING)
-    private TypeAbonnement typeAbonnement;
+    private TypeAbonnement typeAbon;
 
 
 }

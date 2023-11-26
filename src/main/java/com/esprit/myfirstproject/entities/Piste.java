@@ -1,6 +1,7 @@
 package com.esprit.myfirstproject.entities;
 
 import com.esprit.myfirstproject.entities.enums.Couleur;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -21,6 +22,7 @@ public class Piste {
 
     private Long numPiste;
 
+    @JsonIgnore
     @ManyToMany
     Set<Skieur> skieurs;
 

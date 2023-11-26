@@ -2,6 +2,7 @@ package com.esprit.myfirstproject.entities;
 
 import com.esprit.myfirstproject.entities.enums.Support;
 import com.esprit.myfirstproject.entities.enums.TypeCours;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -26,6 +27,7 @@ public class Cours {
     Float prix;
     int creneau;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cours")
 // la classe Cours est la classe child(mapped by), elle est géréé par la classe Inscription
     private Set<Inscription> inscriptions;

@@ -116,7 +116,7 @@ public class SkieurServiceImpl implements SkieurService {
 //        attention le typeAbonnement est un string donc .equals()
 
 
-        skieursAbonnes.removeIf(skieur -> !skieur.getAbonnement().getTypeAbonnement().equals(typeAbonnement));
+        skieursAbonnes.removeIf(skieur -> !skieur.getAbonnement().getTypeAbon().equals(typeAbonnement));
 
         //        Cette Ligne au-dessus est similaire à la boule for en dessous
 

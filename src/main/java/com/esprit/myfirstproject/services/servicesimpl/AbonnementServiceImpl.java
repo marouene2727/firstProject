@@ -61,7 +61,7 @@ public class AbonnementServiceImpl implements AbonnementService {
     @Override
     public Set<Abonnement> getAbonnementByType(TypeAbonnement typeAbonnement) { // pas de @Transactional car getMapping
 
-        List<Abonnement> abonnements = abonnementRepository.findByTypeAbonnementOrderByDateDebut(typeAbonnement);
+        List<Abonnement> abonnements = abonnementRepository.findByTypeAbonOrderByDateDebut(typeAbonnement);
 //
 //        abonnements.removeIf(abonnement -> !abonnement.getTypeAbonnement().equals(typeAbonnement));
 //

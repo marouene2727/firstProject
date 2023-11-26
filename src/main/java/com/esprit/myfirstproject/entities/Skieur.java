@@ -1,9 +1,6 @@
 package com.esprit.myfirstproject.entities;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerator;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -34,6 +31,7 @@ public class Skieur {
     @OneToOne(cascade = CascadeType.ALL)//relation 1..1 (avec composition <=> CascadeType.ALL) entre SKIEUR et ABONNEMENT
     Abonnement abonnement;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "skieur")// la classe skieur est la classe child(mapped by), elle est géréé par la classe InscriptionRepository
     //l'attribut skieur sera donc situé dans la classe Inscription donc on utilise l'InscriptionRepository pour sauvegarder un Skieur
     Set<Inscription> inscriptions;
