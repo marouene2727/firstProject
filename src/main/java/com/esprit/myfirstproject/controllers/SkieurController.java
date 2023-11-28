@@ -67,4 +67,9 @@ public class SkieurController {
         return skieurService.getSkieurbyMoniteurNameJPQL(MoniteurName);
     }
 
+    @DeleteMapping("{id}")
+    public boolean deleteSkieur(@PathVariable long id){
+        return skieurService.deleteById(id);
+    }
+
 }
