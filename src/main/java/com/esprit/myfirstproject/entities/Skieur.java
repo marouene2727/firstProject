@@ -32,7 +32,7 @@ public class Skieur {
     Abonnement abonnement;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "skieur")// la classe skieur est la classe child(mapped by), elle est géréé par la classe InscriptionRepository
+    @OneToMany(mappedBy = "skieur", fetch = FetchType.EAGER)// la classe skieur est la classe child(mapped by), elle est géréé par la classe InscriptionRepository
     //l'attribut skieur sera donc situé dans la classe Inscription donc on utilise l'InscriptionRepository pour sauvegarder un Skieur
     Set<Inscription> inscriptions;
 

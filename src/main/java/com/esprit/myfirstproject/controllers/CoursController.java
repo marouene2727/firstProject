@@ -37,6 +37,11 @@ public class CoursController {
         return coursService.updateCours(Cours);
     }
 
+    @DeleteMapping("{id}")
+    public boolean deleteCours(@PathVariable long id) {
+        return coursService.deleteById(id);
+    }
+
     @GetMapping("/numWeeksCourseOfMoniteurBySupport/{numMoniteur}")
     public List<Integer> numWeeksCourseOfMoniteurBySupport(@PathVariable Long numMoniteur, @RequestBody Support support) {
         return coursService.numWeeksCourseOfMoniteurBySupport(numMoniteur, support);

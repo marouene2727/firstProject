@@ -24,4 +24,6 @@ public interface AbonnementService { // on ne touche plus cette interface (conti
     Set<Abonnement> getAbonnementByType(TypeAbonnement typeAbonnement);
 
     List<Abonnement> retrieveSubscriptionsByDates(LocalDate startDate, LocalDate endDate);
+
+//    public void testscheduler();
 }

@@ -100,6 +100,11 @@ public class AbonnementController {
         return abonnementService.updateAbonnement(Abonnement);
     }
 
+    @DeleteMapping("{id}")
+    public boolean deleteAbonnement(@PathVariable long id) {
+        return abonnementService.deleteById(id);
+    }
+
 //    @PutMapping
 //    public ResponseEntity<Abonnement> updateAbonnement(@RequestBody Abonnement abonnement) {
 //        try {

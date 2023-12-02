@@ -32,4 +32,9 @@ public class PisteController {
     public Piste updatePiste(@RequestBody Piste Piste) {
         return PisteService.updatePiste(Piste);
     }
+
+    @DeleteMapping("{id}")
+    public boolean deletePiste(@PathVariable long id) {
+        return PisteService.deleteById(id);
+    }
 }

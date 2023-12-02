@@ -1,20 +1,21 @@
 package com.esprit.myfirstproject.services.servicesimpl;
 
-import com.esprit.myfirstproject.entities.Cours;
-import com.esprit.myfirstproject.entities.Inscription;
-import com.esprit.myfirstproject.entities.Piste;
-import com.esprit.myfirstproject.entities.Skieur;
+import com.esprit.myfirstproject.entities.*;
 import com.esprit.myfirstproject.entities.enums.TypeAbonnement;
 import com.esprit.myfirstproject.repositories.*;
 import com.esprit.myfirstproject.services.SkieurService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
 @Service
+@Slf4j
 public class SkieurServiceImpl implements SkieurService {
 
 
@@ -134,5 +135,23 @@ public class SkieurServiceImpl implements SkieurService {
 
     public List<Skieur> getSkieurbyMoniteurNameJPQL(String MoniteurName) {
         return skieurRepository.getSkieurbyMoniteurNameJPQL(MoniteurName);
+    }
+
+    @Override
+    @Scheduled(fixedRate = 60000)
+    public void testscheduler() {
+        List<Skieur> skieurs = skieurRepository.findAll();
+        for (Skieur skieur : skieurs){
+            log.info("Skieur : " + skieur.getNumSkieur());
+            log.info("Nom-Prénom : " + skieur.getNomS()+"-"+skieur.getPrenomS());
+            log.info("Num Abonnement : " + String.valueOf(skieur.getAbonnement().getNumAbon())+"\n");
+        }
+
+    }
+
+    @Override
+    public LocalDate dateTest(LocalDate date) {
+        log.info("Date : " + String.valueOf(date));
+        return date;
     }
 }

@@ -6,6 +6,7 @@ import com.esprit.myfirstproject.repositories.AbonnementRepository;
 import com.esprit.myfirstproject.services.AbonnementService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ import java.util.Set;
 
 @RequiredArgsConstructor // pour l'injection des dépendances niveau constructor
 @Service
+@Slf4j
 public class AbonnementServiceImpl implements AbonnementService {
 
     //    @Autowired // injection Dépendance niveau attribut
@@ -90,6 +92,14 @@ public class AbonnementServiceImpl implements AbonnementService {
 ////        }
         return abonnements;
     }
+//    @Override
+//    @Scheduled(fixedRate = 60000)
+//    public void testscheduler(){
+//        List<Abonnement> abonnements = abonnementRepository.findAll();
+//        for (Abonnement abonnement : abonnements){
+//            log.info(String.valueOf(abonnement.getPrixAbon()));
+//        }
+//    }
 
 
 }

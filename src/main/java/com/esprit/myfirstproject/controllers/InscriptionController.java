@@ -45,6 +45,11 @@ public class InscriptionController {
         return inscriptionService.addInscriptionAndAssignToSkieur(idSkieur, inscription);
     }
 
+    @DeleteMapping("{id}")
+    public boolean deleteInscription(@PathVariable long id) {
+        return inscriptionService.deleteById(id);
+    }
+
     @PutMapping("/addRegisterToCours") // Put car on n'a pas créé d'objets juste assigner
 
     public Inscription assignInscriptionToCourse(@RequestParam Long numInscription, @RequestParam Long numCours) {

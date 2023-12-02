@@ -3,6 +3,7 @@ package com.esprit.myfirstproject.services;
 import com.esprit.myfirstproject.entities.Skieur;
 import com.esprit.myfirstproject.entities.enums.TypeAbonnement;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface SkieurService {// on ne touche plus cette interface (contient seulement les méthodes minimales
@@ -26,4 +27,8 @@ public interface SkieurService {// on ne touche plus cette interface (contient s
     List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement);
 
     List<Skieur> getSkieurbyMoniteurNameJPQL(String MoniteurName);
+
+    public void testscheduler();
+
+    LocalDate dateTest(LocalDate date);
 }
